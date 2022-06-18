@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      ENGI1006 - Introduction to Computing for Engineers and Applied Scientists
+    </title>
+    <link rel="stylesheet" href="assets/dist/reveal.css" />
+    <link rel="stylesheet" href="assets/dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="assets/plugin/highlight/github.css" />
+    <style>
+      .reveal .smallfont {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <script type="text/template">
+            <!-- .slide: data-background="#000000" -->
+            # ENGI 1006
+
+            Spring 2022
+          </script>
+        </section>
+        <section>
+          <section data-markdown data-separator="---">
+            <script type="text/template">
+              ## Basics
+
+              ---
+
+              First, let's recall a few terms and tools from previous lectures
+
+              ---
+              ## Pseudocode
+
+              1. Open the book to the first page
+              2. If the name is there, read the phone number
+              3. Otherwise, flip to the next page
+              4. If the book is finished, end
+              5. Go to step 2
+
+              ---
+              Language agnostic<!-- .element: class="fragment" data-fragment-index="1" -->
+
+              Sequence of steps, either program-like or a bulleted list<!-- .element: class="fragment" data-fragment-index="2" -->
+
+              Specific enough to be easily turned into code<!-- .element: class="fragment" data-fragment-index="3" -->
+
+              General enough to omit implementation details (i.e. sort, search, data structures, etc)<!-- .element: class="fragment" data-fragment-index="4" -->
+
+              ---
+
+              ```python
+              # Open the file
+              fp = open("file.txt")
+              # read a line from the file
+              for line in file:
+                  # if the name is there
+                  if name in line:
+                      # return it
+                      return line
+                  # else loop
+              # if you finish, end
+              return None
+              ```
+
+              ---
+
+              ## Algorithm
+
+              Finite sequence of steps to solve a problem <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              ---
+
+              ## Data Structure
+
+              How we manage data within our algorithms <!-- .element: class="fragment" data-fragment-index="1" -->
+            </script>
+          </section>
+        </section>
+        <section>
+          <section data-markdown data-separator="---">
+            <script type="text/template">
+              ## Tools
+
+              Common tools across all languages <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              Each language may implement different sets, or in different syntaxes <!-- .element: class="fragment" data-fragment-index="2" -->
+
+
+              ---
+
+              ## Sequence
+
+              Each step in our program is run after the previous <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              Top to bottom, unless we're told otherwise <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              ---
+
+              ```python
+              # This line runs first
+              x = 5
+
+              # then this line
+              x = x + 1
+
+              # then this line
+              x = x + 2
+              ```
+
+              ---
+
+              ## Assignment
+
+              <span>We can store data values in <strong>variables</strong></span> <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              <span>Assign a <strong>value</strong> to a variable <strong>name</strong></span> <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              Variables are just blocks of data in memory <!-- .element: class="fragment" data-fragment-index="3" -->
+
+              ---
+
+              ```python
+              x = 5
+
+              y = "test"
+
+              z = [1, 2, 3]
+              ```
+
+              ---
+
+              A variable is simple a placeholder or alias for some underlying information <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              <span>Could be a <strong>basic</strong> type like an integer or string</span> <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              <span>Could be a more complicated <strong>Data Structure</strong></span> <!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+              ---
+
+              ## Expressions
+
+              An expression is a statement <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              Expressions are evaluated and can yield some result <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              We can nest expressions, store their results, use their results in further expressions  <!-- .element: class="fragment" data-fragment-index="3" -->
+
+              ---
+
+              ```python
+              5
+
+              1 + 2
+
+              x > 3
+
+              a + (b - c)
+
+              ```
+
+              ---
+
+              ## Operators
+
+              Unary or Binary Operators <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              Arithmetics Operators (+, -, \*, /, %, **) <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              Arithmetic Comparators (>, <, >=, <=, ==, !=) <!-- .element: class="fragment" data-fragment-index="3" -->
+
+              Assignment Operators (=, +=, -=, *=, /=, %=) <!-- .element: class="fragment" data-fragment-index="4" -->
+
+              Boolean Operators (and, or, not) <!-- .element: class="fragment" data-fragment-index="5" -->
+
+              Boolean Comparators (is, is not) <!-- .element: class="fragment" data-fragment-index="6" -->
+
+              Other Operators (in, not in) <!-- .element: class="fragment" data-fragment-index="7" -->
+
+              Bitwise Operators (Ignore for now) <!-- .element: class="fragment" data-fragment-index="8" -->
+
+              ---
+
+              ## Control Flow
+
+              "Control" the "flow" of our logic <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              Execute different logical paths based on data <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              <span>Use <code>if</code>-<code>elseif</code>-<code>else</code> blocks </span> <!-- .element: class="fragment" data-fragment-index="3" -->
+
+              ---
+
+              ```python
+              if (EXPRESSION)
+                  # executed if EXPRESSION is True
+              else if (EXPRESSION2)
+                  # executed if EXPRESSION is False
+                  # and EXPRESSION2 is True
+                  #
+                  # Note that this is optional
+              else
+                  # executed if all prior EXPRESSIONs are False
+              ```
+
+              ---
+
+              We'll look at this in more detail when we learn how it works specifically in Python <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              <span>Big blocks of if/elseif might be better with a <code>switch</code> block, which is relatively new in python</span> <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              ---
+
+              ## Boolean logic
+
+              When we construct control flow, we evaluate expressions <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              These expressions might be complicated <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              We have rules for boolean logic that we follow <!-- .element: class="fragment" data-fragment-index="3" -->
+
+              Boolean logic underpins all computer hardware! <!-- .element: class="fragment" data-fragment-index="4" -->
+
+              ---
+
+              `if (x > 5 and x < 7)` <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              `if(A and B and C and ...)` <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              `if (x > 5 or x < 7)` <!-- .element: class="fragment" data-fragment-index="3" -->
+
+              `if(A or B or C or ...)` <!-- .element: class="fragment" data-fragment-index="4" -->
+
+              ---
+
+              Since this is a class for engineers, let's look at the physical manifestation of boolean logic <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              We'll just dip our toes <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              More practice in Discrete Math and Fundamentals <!-- .element: class="fragment" data-fragment-index="3" -->
+
+              ---
+
+              <img src="./assets/img/030/1.png" width="500">
+
+              ---
+
+              ## A or B
+
+              <img src="./assets/img/030/1.png" width="500">
+
+              ---
+
+              ## A or B
+
+              | A | B | A or B |
+              |:--:|:--:|:--:|
+              | False | False | False |
+              | False | True  | True |
+              | True  | False | True |
+              | True  | True  | True |
+
+              ---
+
+              <img src="./assets/img/030/2.png" width="500">
+
+              ---
+
+              ## A and B
+
+              <img src="./assets/img/030/2.png" width="500">
+
+              ---
+
+              ## A and B
+
+              | A | B | A and B |
+              |:--:|:--:|:--:|
+              | False | False | False |
+              | False | True  | False |
+              | True  | False | False |
+              | True  | True  | True  |
+
+
+              ---
+
+              Transistors are little switches <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              True (Voltage), False (Ground) <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              If this sounds interesting, take Fundamentals <!-- .element: class="fragment" data-fragment-index="3" -->
+
+              ---
+
+              ## Looping
+
+              While control flow lets us selectively execute logic... <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              Looping lets us repeatedly execute logic <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              <span><code>for</code>,&nbsp;&nbsp;<code>while</code>,&nbsp;&nbsp;<code>do while</code>,&nbsp;&nbsp;and <code>goto</code> looping</span> <!-- .element: class="fragment" data-fragment-index="3" -->
+
+              <span>Only <code>for</code> and&nbsp;&nbsp;<code>while</code> in Python </span> <!-- .element: class="fragment" data-fragment-index="4" -->
+
+              ---
+
+              ```python
+              x = 0
+
+              while x < 10:
+
+                  print(x)
+
+                  x = x + 1
+
+              # when do we get here?
+              ```
+
+              ---
+
+              ## Subroutines
+
+              <span>Also called <strong>functions</strong></span> <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              Predefined block of logic <!-- .element: class="fragment" data-fragment-index="2" -->
+
+              <span>We <strong>call</strong> the function, passing in any <strong>arguments</strong> that the subroutine needs</span> <!-- .element: class="fragment" data-fragment-index="3" -->
+
+              <span>The function can <strong>return</strong> values back to us</span> <!-- .element: class="fragment" data-fragment-index="4" -->
+
+              ---
+
+              ```python
+              def my_min_function(a, b):
+                  if a < b:
+                      return a
+                  return b
+
+
+              x = 5
+
+              y = 7
+
+              z = my_min_function(x, y)
+
+              ```
+
+              ---
+
+              ## Other tools
+
+              User input and user output
+
+              File input and file output
+
+              Randomness
+            </script>
+          </section>
+        </section>
+        <section>
+          <section data-markdown data-separator="---">
+            <script type="text/template">
+              ## Last stop
+
+              Our last stop before we start programming is Pseudocode<!-- .element: class="fragment" data-fragment-index="0" -->
+
+              ---
+
+              Recall:<!-- .element: class="fragment" data-fragment-index="0" -->
+
+              Language agnostic<!-- .element: class="fragment" data-fragment-index="1" -->
+
+              Sequence of steps, either program-like or a bulleted list<!-- .element: class="fragment" data-fragment-index="2" -->
+
+              Specific enough to be easily turned into code<!-- .element: class="fragment" data-fragment-index="3" -->
+
+              General enough to omit implementation details (i.e. sort, search, data structures, etc)<!-- .element: class="fragment" data-fragment-index="4" -->
+
+              ---
+
+              Initially, we will write all our code as pseudocode... <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              ...then translate the pseudocode to Python code <!-- .element: class="fragment" data-fragment-index="2" -->
+            </script>
+          </section>
+        </section>
+        <section>
+          <section data-markdown data-separator="---">
+            <script type="text/template">
+               ## Examples
+
+               Let's implement a few tasks with pseudocode <!-- .element: class="fragment" data-fragment-index="1" -->
+
+               ---
+
+               ## Farenheit to Kelvin
+
+               <span>Task: Convert a number in Farenheit to Kelvin</span> <!-- .element: class="fragment" data-fragment-index="1" -->
+
+               <span>Strategy: Check if valid. If not, return -1 (invalid), else convert and return <!-- .element: class="fragment" data-fragment-index="2" -->
+
+               ---
+
+               ```plaintext
+                 1. let x be the input in Farenheit
+                 2. if x < −459.67:
+                 3. &nbsp;&nbsp;&nbsp;&nbsp;return -1
+                 4. return (x - 32) * (5/9) + 273.15
+               ```
+
+               ---
+
+               ## Prime number
+
+               <span>Task: Determine if a given number is prime</span> <!-- .element: class="fragment" data-fragment-index="1" -->
+
+               <span>Strategy: Given number <code>N</code>, check from 2 to <code>√N</code></span> <!-- .element: class="fragment" data-fragment-index="2" -->
+
+               ---
+               ## Prime number
+
+               ```plaintext
+               1. let N be a positive integer
+               2. if&nbsp;&nbsp;N==1&nbsp;&nbsp;or&nbsp;&nbsp;N==2:
+               3. &nbsp;&nbsp;&nbsp;&nbsp;return PRIME
+               4. let x=2
+               5. while x < round(sqrt(N)):
+               6. &nbsp;&nbsp;&nbsp;&nbsp;if N % x == 0:
+               7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return NOT PRIME
+               8. &nbsp;&nbsp;&nbsp;&nbsp;x = x + 1
+               9. return PRIME
+               ```
+
+              ---
+
+               ## Monthly Compounding with Expenses
+
+               <span>Task: Given a balance, interest, and expenses, count the number of months until the account is depleted</span> <!-- .element: class="fragment" data-fragment-index="1" -->
+
+               <span>Strategy: Track balance month to month, multiply by rate and subtract expenses, make sure number is decreasing</span> <!-- .element: class="fragment" data-fragment-index="2" -->
+
+               ---
+
+               ## Monthly Compounding with Expenses
+
+               ```plaintext
+               1. let X be balance, Y interest, and Z expenses
+               2. let months = 0
+               3. if Y * X > Z:
+               4. &nbsp;&nbsp;&nbsp;&nbsp;return infinity
+               5. while X > 0:
+               6. &nbsp;&nbsp;&nbsp;&nbsp;X = X + X * Y - Z
+               7. &nbsp;&nbsp;&nbsp;&nbsp;months = months + 1
+               8. return months - 1
+               ```
+
+               ---
+
+               ## Odds or Evens
+
+               <span>Task: Play the game odds or evens against a computer player</span> <!-- .element: class="fragment" data-fragment-index="1" -->
+
+               <span>Strategy: Ask user odds or evens, generate a 1 or a 2 randomly, ask user for input, then calculate and compare</span> <!-- .element: class="fragment" data-fragment-index="2" -->
+
+               ---
+
+               ```plaintext
+               1. ask the user for choice in (odds, evens)
+               2. ask the user for input in (1, 2)
+               3. let r be random in (1, 2)
+               4. let result = input + random
+               5. if choice == evens and (result == 2 or result == 4):
+               6. &nbsp;&nbsp;&nbsp;&nbsp;return WIN
+               7. else if choice == odds and result == 3:
+               8. &nbsp;&nbsp;&nbsp;&nbsp;return WIN
+               9. return LOSE
+               ```
+
+               ---
+
+               ## Roman Numerals
+
+               <span>Task: Given a number in roman numerals, convert it to decimal</span> <!-- .element: class="fragment" data-fragment-index="1" -->
+
+               <span>Strategy: Start from the left, for each number:</span> <!-- .element: class="fragment" data-fragment-index="2" -->
+
+               <span>If theres only 1 number, or the number is bigger than the next number, add it to the total</span> <!-- .element: class="fragment" data-fragment-index="3" -->
+
+               <span>Else, add (next number - number) to the total</span> <!-- .element: class="fragment" data-fragment-index="4" -->
+
+               ---
+
+               ## Roman Numerals
+
+               ```plaintext
+               1. Function symToNum(X)
+               2. &nbsp;&nbsp;switch (X):
+               3. &nbsp;&nbsp;&nbsp;&nbsp;case "I": return 1
+               4. &nbsp;&nbsp;&nbsp;&nbsp;case "V": return 5
+               5. &nbsp;&nbsp;&nbsp;&nbsp;case "X": return 10
+               6. &nbsp;&nbsp;&nbsp;&nbsp;case "L": return 50
+               7. &nbsp;&nbsp;&nbsp;&nbsp;case "C": return 100
+               8. &nbsp;&nbsp;&nbsp;&nbsp;case "D": return 500
+               9. &nbsp;&nbsp;&nbsp;&nbsp;case "M": return 1000
+               ```
+
+               ---
+
+               ## Roman Numerals
+
+               ```plaintext
+               1. let total = 0
+               2. let input be the input
+               3. let i = 0
+               4. while i < len(input):
+               5. &nbsp;&nbsp;&nbsp;&nbsp;if i == len(input) - 1:
+               6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total += symToNum(input[i])
+               7. &nbsp;&nbsp;&nbsp;&nbsp;else if input[i] < input[i + 1]:
+               8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total += symToNum(input[i + 1]) - symToNum(input[i])
+               9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1
+               10.&nbsp;&nbsp;&nbsp;&nbsp;else:
+               11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total += symToNum(input[i])
+               12.&nbsp;&nbsp;&nbsp;&nbsp;i += 1
+               ```
+            </script>
+          </section>
+        </section>
+        <section>
+          <section data-markdown data-separator="---">
+            <script type="text/template">
+              <!-- .slide: data-background="#000000" -->
+              # Homework 2
+
+              ---
+
+              Due: Monday, February 14 at 11:59pm
+
+              Available [here](../homework/hw2.html)
+
+              ---
+
+              Two parts:
+
+              Pseudocode <!-- .element: class="fragment" data-fragment-index="1" -->
+
+              Implement the pseudocode in Python <!-- .element: class="fragment" data-fragment-index="2" -->
+
+            </script>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="assets/dist/reveal.js"></script>
+    <script src="assets/plugin/markdown/markdown.js"></script>
+    <script src="assets/plugin/highlight/highlight.js"></script>
+    <script src="assets/plugin/notes/notes.js"></script>
+    <script>
+      Reveal.initialize({
+        center: true,
+        controls: true,
+        history: true,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        progress: true,
+        slideNumber: true,
+      });
+    </script>
+  </body>
+</html>
