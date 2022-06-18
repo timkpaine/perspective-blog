@@ -8,6 +8,9 @@ HTML footer: <script>hljs.highlightAll();</script>
 
 Perspective Blog
 ==================
+
+Blogging about [Perspective](https://perspective.finos.org).
+
 |                                    | Date                              |
 |:-----------------------------------|:---------------------------------:|
 | [FastAPI](./20220618-fastapi.html) | Sunday, June 19      |
